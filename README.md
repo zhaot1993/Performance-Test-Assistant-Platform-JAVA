@@ -18,4 +18,5 @@
 安装完成后，终于能用了，但是下载镜像还是会超时，于是要配置国内镜像，之前linux是用一个.json的配置文件，找半天windows版的docker没有，于是又一番搜索，意外发现一篇讲<a href="https://blog.csdn.net/galen2016/article/details/89219199" target="_blank">win7安装docker并配置加速镜像</a>的文章，相见恨晚。<br>
 接下来我按照上面的文章，用xshell操作docker，安装了influxdb，这时要运行镜像了，我又忘记了docker run那一堆参数，很烦。docker的windows版的三个软件，虚拟机只是个辅助，不影响docker实际使用，Docker Quickstart Terminal是命令行，用xshell代替了，还有个Kitematic，才是windows版本的主角，官网说只要点一点，就能运行镜像，于是我打开Kitematic，发现能检测到命令行模式下载的镜像，直接点create，一键运行，设置里还能改映射的端口，真方便。我立刻注册了docker账号，想着也许我可以在别的终端登录我的docker账号，能共享所有镜像及设置，其实原理不难，一个compose文件而已。<br>
 进入influx命令行模式，需要在docker命令行里先输入docker exec -it influxdb /bin/bash，再输入influx，即可。<br>
-至此，windows版docker+influx安装完成，明天我再弄telegraf。
+至此，windows版docker+influx安装完成，明天我再弄telegraf。<br>
+今天启动telegraf报错127.0.0.1连接不上，这是配置文件问题，xshell连上docker，然后docker exec -it telegraf /bin/bash进入telegraf容器，改telegraf.conf配置文件。
