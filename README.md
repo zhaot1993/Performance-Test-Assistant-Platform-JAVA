@@ -21,3 +21,4 @@
 至此，windows版docker+influx安装完成，明天我再弄telegraf。<br>
 今天启动telegraf报错127.0.0.1连接不上，这是配置文件问题，xshell连上docker，然后docker exec -it telegraf /bin/bash进入telegraf容器，改telegraf.conf配置文件。之前在centos上，我是直接通过find命令找到镜像配置文件，直接修改，然后启动容器，其实，正规操作应该是用docker exec命令，使用此命令，会进入一个新的终端，好像这个软件独占了一个linux系统，这便是容器隔离。centos能搜到配置文件，但不是那样用的，所以windows上根本搜不到，搜索时报无权限。<br>
 到修改telegraf.conf时，无vi命令，docker默认的操作系统，是debian的，使用apt-get update，先更新，再下载，不更新没法下，更新后得是apt-get install vim,下载vi也下不了。<br>
+docker的默认时区是0区，要改成北京时间，需要docker exec进入容器，执行cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  ，不知道在windowsd的docker里怎么改。
